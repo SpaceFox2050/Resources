@@ -19,3 +19,7 @@ The algorithm randomly generates a number of places the card could move up or do
 After the program has located a place to place all the cards (all card position changes will be temporary stored in the `next` array), it will transfer all the data from the `next` array to the `deck` array. It will then print the shuffled deck and call the `calculate` function.
   
 The `calculate` function goes through the entire deck to check how many consecutive numbers and suits there are, and then prints then out after looping through the entire deck.
+  
+Oct 13 Update:
+  
+Changed old local number generator to a function that returns a random int. This reduces repeated code and a long initializing line.
