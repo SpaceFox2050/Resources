@@ -29,7 +29,7 @@ int random(int low, int high){
     return temp;
 }
 
-void messpileshuf(){
+void smoosh(){
     
     //random_device set;
     //mt19937 xset (set());
@@ -116,7 +116,7 @@ void messpileshuf(){
 }
 
 int main() {
-    messpileshuf();
+    smoosh();
     return 0;
 }
   
