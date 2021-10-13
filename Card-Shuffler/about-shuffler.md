@@ -1,4 +1,6 @@
-# Introduction (Unfinished)
+# Introduction 
+
+The overhand shuffle has not be added and will be when it is finished
 
 There are three cars shuffler algorithms I made for my grade 9 science project on "What is the most efficient way to sufficiently shuffle a deck of cards from 
 factory state?"
