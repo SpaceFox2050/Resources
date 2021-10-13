@@ -20,9 +20,19 @@ void calculate(string deck [52]){
     cout << "Consecutive suits: " << suits << endl;
 }
 
-void messpileshuf(){
+//new random number generator func
+int random(int low, int high){
     random_device set;
-    mt19937 xset (set());
+    mt19937 xset(set());
+    uniform_int_distribution<int> randx(low, high);
+    int temp = randx(xset);
+    return temp;
+}
+
+void messpileshuf(){
+    
+    //random_device set;
+    //mt19937 xset (set());
     int state = 0, temp = 0, high, place, count = 1;
     string suits [4] = {"H", "C", "D", "S"};
     string nums [] = {"3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2"};
@@ -56,8 +66,9 @@ void messpileshuf(){
             for(int y = 0; y < high+1; y++)
                 swap.push_back(y);
             for(int pop = 0; pop < high+1; pop++){
-                uniform_int_distribution<int> placex(0, swap.size()-1);
-                place = placex(xset);
+                //uniform_int_distribution<int> placex(0, swap.size()-1); 
+                //old random number generator
+                place = random(0, swap.size()-1);
                 if(x+swap[place] < 52){
                     if(next[x+swap[place]] == "not") {
                         next[x+swap[place]] = deck[x];
