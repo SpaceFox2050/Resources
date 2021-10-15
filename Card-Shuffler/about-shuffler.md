@@ -37,3 +37,7 @@ There is then a `while` loop that runs while there are still cards left in the t
 There is a for loop inside the while loop to add the cards from the seperated decks into the full deck. In real life we would have it drop down onto the table, but in the algorithm we insert each variable into the `deck` array, which stored the last shuffled deck.
   
 Since there is no need for a `next` array, we print the shuffled deck of cards and call the `calculate` function to calculate consecutive numbers and suits.
+  
+Oct 14 Update:
+  
+Removed repeated cards for loop from calculate function
