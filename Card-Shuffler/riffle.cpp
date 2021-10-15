@@ -15,14 +15,6 @@ void calculate(string deck [52]){
             suits++;
         }
     }
-    for(int x = 0; x < 51; x++){
-        for(int y = x+1; y < 52; y++){
-            if(deck[x] == deck[y]){
-                repeat++;
-                cout << deck[x] << " " << deck[y] << endl;
-            }
-        }
-    }
     cout << "Consecutive numbers: " << nums << endl;
     cout << "Consecutive suits: " << suits << endl;
 }
