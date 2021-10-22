@@ -47,3 +47,5 @@ Removed repeated cards for loop from calculate function
 The overhand shuffle works by holding the deck in one hand, while lowering it into the other hand over and over while the other hand pulls down a few cards at a time. This continues until the deck cannot be pulled down anymore and puts the rest of the cards on top of the shuffled deck.
   
 My algorithm starts the say way as the previous two shuffles, by initlzing the factory setting deck of cards and runs while the user does not enter `1`. The program then asks for the shuffle rate, which is how many cards at max will be pulled from the deck being shuffled, which uses the same shuffle rate logic. The shuffle rate has a constraint of 2 <= input <= 9 and the constant lowest shuffle rate (already implemented in the code) is 1. 
+  
+  unfinished
