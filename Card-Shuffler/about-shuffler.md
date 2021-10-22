@@ -6,6 +6,8 @@ factory state?"
 The three shuffling techniques included are riffle, the overhand, and the smoosh (messpile) shuffle.
 
 All three algorithms work by randomly generating numbers using C++'s <random> library found in C++ 11.
+  
+If you want to learn more about shuffling, you can go to the [wikipedia shuffling page](https://en.wikipedia.org/wiki/Shuffling)
 
 # Smoosh (messpile) Shuffle
 
