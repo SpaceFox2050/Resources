@@ -1,7 +1,5 @@
 # Introduction 
 
-The overhand shuffle has not be added and will be when it is finished
-
 There are three cars shuffler algorithms I made for my grade 9 science project on "What is the most efficient way to sufficiently shuffle a deck of cards from 
 factory state?"
 
@@ -48,4 +46,6 @@ The overhand shuffle works by holding the deck in one hand, while lowering it in
   
 My algorithm starts the say way as the previous two shuffles, by initlzing the factory setting deck of cards and runs while the user does not enter `1`. The program then asks for the shuffle rate, which is how many cards at max will be pulled from the deck being shuffled, which uses the same shuffle rate logic. The shuffle rate has a constraint of 2 <= input <= 9 and the constant lowest shuffle rate (already implemented in the code) is 1. 
   
-  unfinished
+We then copy `deck` into `split`, where `split` is the deck being held in one hand and `deck` will have its card numbers changed when the `split` deck drops down onto the other hand, we then run while `split` is not empty. A random number `sec` is generated with the constraints 1 <= `sec` <= `high`, and then drops `sec` many cards from the top of the `split` deck into the `deck` deck. If 'sec' is larger compared to `split.size()`, we stop when `split.size()` is 0 to not get an `sigsegv` error (out of bounds). 
+  
+We then print out the shuffled `deck` and transfer it into an array becuase th `calculate` function only accepts array while we have been using a vector for `deck`.
