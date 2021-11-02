@@ -2,8 +2,9 @@
 #include <random>
 using namespace std;
 
-void calculate(string deck [52]){
+void calculate(string deck [52], string last [52]){
     int nums = 0, suits = 0, repeat = 0;
+    double average = 0.0;
     for(int x = 1; x < 52; x++){
         if(deck[x].size() == deck[x-1].size() && deck[x].size() == 3){
             nums++;
@@ -15,8 +16,25 @@ void calculate(string deck [52]){
             suits++;
         }
     }
+    for(int x = 0; x < 51; x++){
+        for(int y = x+1; y < 52; y++){
+            if(deck[x] == deck[y]){
+                repeat++;
+                cout << deck[x] << " " << deck[y] << endl;
+            }
+        }
+    }
+    for(int x = 0; x < 52; x++){
+        for(int y = 0; y < 52; y++){
+            if(deck[x] == last[y]){
+                average+=abs(x-y);
+            }
+        }
+    }
+    average/=52;
     cout << "Consecutive numbers: " << nums << endl;
     cout << "Consecutive suits: " << suits << endl;
+    cout << "Average spaces moved up and down " << average << endl;
 }
 
 int random(int low, int high){
@@ -41,6 +59,16 @@ void riffle(){
             temp++;
         }
     }
+    while(true){
+        cout << "Enter shuffle rate (how many cards at max will fall into the receiving pile)" << endl;
+        cout << "Constraints 2 <= input <= 9" << endl;
+        cin >> high;
+        if(high > 9 || high < 2){
+            cout << "Shuffle rate is too high" << endl;
+            continue;
+        }
+        break;
+    }
     while(state != 1){
         shufs++;
         for(int x = 0; x < 26; x++){
@@ -51,13 +79,6 @@ void riffle(){
         cin >> state;
         if(state != 0 && state != 1){
             cout << "Input is invalid" << endl;
-            continue;
-        }
-        cout << "Enter shuffle rate (how many cards at max will fall into the receiving pile)" << endl;
-        cout << "Constraints 2 <= input <= 9" << endl;
-        cin >> high;
-        if(high > 9 || high < 2){
-            cout << "Shuffle rate is too high" << endl;
             continue;
         }
         temp = 0, ttop = 0, tbot = 0, token = 0;

@@ -9,6 +9,12 @@ All three algorithms work by randomly generating numbers using C++'s <random> li
   
 If you want to learn more about shuffling, you can go to the [wikipedia shuffling page](https://en.wikipedia.org/wiki/Shuffling)
 
+Nov 2 Update:
+
+Updated `calculate` function: brought back `for loops` to check for repeating cards and a for loop to check for the average number of spaces a card has moved up or down. This is calculated by comparing the current deck and last deck and getting the distance between the two cards. The algorithm adds all these numbers up and divides it by 52 at the end to get the average. 
+
+Also removed where code asks for `shuffle rate` every shuffle cycle, now the `shuffle rate` is only asked for at the start of every code exection and remains constant throughout all shuffle cycles. 
+
 # Smoosh (messpile) Shuffle
 
 The smoosh (messpile) shuffle works by spreading the deck of cards out on a surface and moving it around. After you think it is enough, the deck of cards is 

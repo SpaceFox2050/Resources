@@ -3,8 +3,9 @@
 #include <random>
 using namespace std;
 
-void calculate(string deck [52]){
+void calculate(string deck [52], string last [52]){
     int nums = 0, suits = 0, repeat = 0;
+    double average = 0.0;
     for(int x = 1; x < 52; x++){
         if(deck[x].size() == deck[x-1].size() && deck[x].size() == 3){
             nums++;
@@ -16,8 +17,25 @@ void calculate(string deck [52]){
             suits++;
         }
     }
+    for(int x = 0; x < 51; x++){
+        for(int y = x+1; y < 52; y++){
+            if(deck[x] == deck[y]){
+                repeat++;
+                cout << deck[x] << " " << deck[y] << endl;
+            }
+        }
+    }
+    for(int x = 0; x < 52; x++){
+        for(int y = 0; y < 52; y++){
+            if(deck[x] == last[y]){
+                average+=abs(x-y);
+            }
+        }
+    }
+    average/=52;
     cout << "Consecutive numbers: " << nums << endl;
     cout << "Consecutive suits: " << suits << endl;
+    cout << "Average spaces moved up or down: " << average << endl;
 }
 
 void overhand(){
@@ -34,6 +52,16 @@ void overhand(){
             temp++;
         }
     }
+    while(true){
+        cout << "Enter shuffle rate (how many cards at max will fall into the receiving deck per shuffle)" << endl;
+        cout << "Constraints 2 <= input <= 9" << endl;
+        cin >> high;
+        if(high > 9 || high < 2){
+            cout << "Shuffle rate is too high" << endl;
+            continue;
+        }
+        break;
+    }
     while(state != 1){
         shufs++;
         cout << "Enter 0 for game continue/start; 1 to terminate program" << endl;
@@ -42,13 +70,7 @@ void overhand(){
             cout << "Input is invalid" << endl;
             continue;
         }
-        cout << "Enter shuffle rate (how many cards at max will fall into the receiving deck per shuffle)" << endl;
-        cout << "Constraints 2 <= input <= 9" << endl;
-        cin >> high;
-        if(high > 9 || high < 2){
-            cout << "Shuffle rate is too high" << endl;
-            continue;
-        }
+    
         for(int x = 0; x < 52; x++)
             split.push_back(deck[x]);
         while(!split.empty()){
