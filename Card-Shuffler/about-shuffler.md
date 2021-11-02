@@ -13,7 +13,7 @@ Nov 2 Update:
 
 Updated `calculate` function: brought back `for loops` to check for repeating cards and a for loop to check for the average number of spaces a card has moved up or down. This is calculated by comparing the current deck and last deck and getting the distance between the two cards. The algorithm adds all these numbers up and divides it by 52 at the end to get the average. 
 
-Also removed where code asks for `shuffle rate` every shuffle cycle, now the `shuffle rate` is only asked for at the start of every code exection and remains constant throughout all shuffle cycles. 
+Also removed where code asks for `shuffle rate` every shuffle cycle, now the `shuffle rate` is only asked for at the start of every code exection and remains constant throughout all shuffle cycles. If the inputed number is not within the constraints of the current shuffle, the algorithm will continously ask for a new `shuffle rate` until a number within the constraints is entered.
 
 # Smoosh (messpile) Shuffle
 
