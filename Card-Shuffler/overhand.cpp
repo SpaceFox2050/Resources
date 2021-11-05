@@ -48,6 +48,14 @@ void calculate(string deck [52], string last [52]){
     cout << "Average spaces moved up or down: " << average << endl;
 }
 
+int random(int low, int high){
+    random_device set;
+    mt19937 xset(set());
+    uniform_int_distribution<int> randx(low, high);
+    int temp = randx(xset);
+    return temp;
+}
+
 void overhand(){
     int temp = 0, state = 0, shufs = 0, high;
     string suits [4] = {"H", "C", "D", "S"};
@@ -55,6 +63,7 @@ void overhand(){
     vector<string> deck;
     vector<string> split;
     string e[52];
+    string last[52];
     for(auto & suit : suits){
         for(auto & num : nums){
             deck.push_back(suit);
@@ -80,9 +89,10 @@ void overhand(){
             cout << "Input is invalid" << endl;
             continue;
         }
-    
-        for(int x = 0; x < 52; x++)
+        for(int x = 0; x < 52; x++){
             split.push_back(deck[x]);
+            last[x] = deck[x];
+        }
         while(!split.empty()){
             temp = random(1, high);
             if(temp > split.size()){
@@ -99,7 +109,7 @@ void overhand(){
             e[x] = deck[x];
         }
         cout << endl;
-        calculate(e);
+        calculate(e, last);
     }
 
 }

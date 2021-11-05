@@ -1,4 +1,4 @@
-#include <iosteam>
+#include <iostream>
 #include <random>
 using namespace std;
 
@@ -62,6 +62,7 @@ void riffle(){
     string deck [52];
     string top [26];
     string bottom [26];
+    string last[52];
     for(auto & suit : suits){
         for(auto & num : nums){
             deck[temp]+=suit;
@@ -85,6 +86,8 @@ void riffle(){
             top[x] = deck[x];
             bottom[x] = deck[x+26];
         }
+        for(int x = 0; x < 52; x++)
+            last[x] = deck[x];
         cout << "Enter 0 for game continue/start; 1 to terminate program" << endl;
         cin >> state;
         if(state != 0 && state != 1){
@@ -119,7 +122,7 @@ void riffle(){
         for(string x:deck)
             cout << x << " ";
         cout << endl;
-        calculate(deck);
+        calculate(deck, last);
     }
 }
 

@@ -66,6 +66,7 @@ void smoosh(){
     string nums [] = {"3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A", "2"};
     string deck [52];
     string next[52];
+    string last[52];
     vector<int> swap;
     for(auto & suit : suits){
         for(auto & num : nums){
@@ -92,8 +93,10 @@ void smoosh(){
             continue;
         }
     
-        for(string& x:next)
-            x = "not";
+        for(int x = 0; x < 52; x++){
+            next[x] = "not";
+            last[x] = deck[x];
+        }
         for(int x = 0; x < 52; x++){
             for(int y = 0; y < high+1; y++)
                 swap.push_back(y);
@@ -143,7 +146,7 @@ void smoosh(){
         for(string x:next)
             cout << x << " ";
         cout << endl;
-        calculate(deck);
+        calculate(deck, last);
     }
 }
 
