@@ -15,6 +15,10 @@ Updated `calculate` function: brought back `for loops` to check for repeating ca
 
 Also removed where code asks for `shuffle rate` every shuffle cycle, now the `shuffle rate` is only asked for at the start of every code exection and remains constant throughout all shuffle cycles. If the inputed number is not within the constraints of the current shuffle, the algorithm will continously ask for a new `shuffle rate` until a number within the constraints is entered.
 
+Nov 5 Update:
+
+Updated `calculate` function, added same cards dished out to same player function in the nested for loop that checks for average number of spaces moved up and down. This added part checks how many cards are handed out to the same person in a 2, 3, or 4 player game. It works by first finding identical cards in `deck` and `last`, it then gets the absolute value of the index where the card was found in `deck` and the index where the card was found in `last`. It then sees if both indexs modulus (%) is equal to each other. Modulus returns the remainder after dividing by `x`, written after `%` (index%`x`). We check the mod of 2, 3, and 4 to check how many cards are handed out to the same person in an either 2, 3, or 4 person game. Modulus by 2 checks for a 2 player game, mod 3 checks for a 3 player game, and so on.
+
 # Smoosh (messpile) Shuffle
 
 The smoosh (messpile) shuffle works by spreading the deck of cards out on a surface and moving it around. After you think it is enough, the deck of cards is 

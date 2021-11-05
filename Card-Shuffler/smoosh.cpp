@@ -4,7 +4,7 @@
 using namespace std;
 
 void calculate(string deck [52], string last [52]){
-    int nums = 0, suits = 0, repeat = 0;
+    int nums = 0, suits = 0, repeat = 0, doub = 0, triple = 0, quad = 0;
     double average = 0.0;
     for(int x = 1; x < 52; x++){
         if(deck[x].size() == deck[x-1].size() && deck[x].size() == 3){
@@ -25,10 +25,20 @@ void calculate(string deck [52], string last [52]){
             }
         }
     }
-    for(int x = 0; x < 52; x++){
+     for(int x = 0; x < 52; x++){
         for(int y = 0; y < 52; y++){
             if(deck[x] == last[y]){
+                //check average
                 average+=abs(x-y);
+                //check number of cards given out to same person (2-4 player games)
+                if((x+1)%4 == (y+1)%4){
+                    quad++;
+                    doub++;
+                }else if((x+1)%3 == (y+1)%3){
+                    triple++;
+                }else if((x+1)%2 == (y+1)%2){
+                    doub++;
+                }
             }
         }
     }
